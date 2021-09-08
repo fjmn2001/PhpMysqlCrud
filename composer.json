@@ -1,0 +1,8 @@
+{
+    "name": "medine/php-mysql-crud",
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": "^8.0"
+    }
+}
