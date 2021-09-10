@@ -7,20 +7,17 @@ if (isset($_POST['save_task'])) {
     $description= $_POST['description'];
 
 
-    $stmt = Conexion::conectar()->prepare("INSERT INTO crud (title, description) VALUES (:title, :description)");
+    $stmt = Connection::conectar()->prepare("INSERT INTO crud (title, description) VALUES (:title, :description)");
 
     $stmt->bindParam(":title",$title);
     $stmt->bindParam(":description",$description);
 
-    if ($stmt->execute()){
+    $stmt->execute();
 
-        return "success";
+    $_SESSION['message'] = 'Task Saved succesfully';
+    $_SESSION['message_type'] = 'success';
 
-    }
-
-    else{
-
-        return "error";
-    }
-
+    header("Location: index.php");
 }
+
+
